@@ -20,8 +20,8 @@ const Navbar = () => {
         <h1 className={!title ? "text-[#32211b] w-full text-3xl font-bold opacity-0" : "text-[#32211b] w-full text-3xl font-bold" }>
           Samyang Roll
         </h1>
-        <ul className="md:flex hidden">
-          <li className="p-4">test</li>
+        <ul className="md:flex hidden font-semibold">
+          <li className="p-4">Deskripsi</li>
           <li className="p-4">test</li>
           <li className="p-4">test</li>
         </ul>
@@ -39,7 +39,7 @@ const Navbar = () => {
         >
           <h1 className="text-[#32211b] w-full text-3xl font-bold m-5">Samyang Roll</h1>
           <ul className="uppercase p-4">
-          <li className="p-4">test</li>
+          <li className="p-4">Deskripsi</li>
           <li className="p-4">test</li>
           <li className="p-4">test</li>
         </ul>
