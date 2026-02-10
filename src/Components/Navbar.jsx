@@ -1,48 +1,72 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import Logo from "../assets/Logo.png";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(true);
-  const [title,setTitle] = useState(true);
+  const [nav, setNav] = useState(false);
 
   const handleNav = () => {
     setNav(!nav);
-    setTitle(!title);
-  }
-
-  // const handleTitle = () => {
-  //   setTitle(!title);
-  // }
+  };
 
   return (
-    <div className="bg-white/30 backdrop-blur-md rounded-b-xl shadow-sm">
-      <div className="flex justify-between items-center px-4 mx-auto max-w-[1240px] text-[#32211b] h-24">
-        <h1 className={!title ? "text-[#32211b] w-full text-3xl font-bold opacity-0" : "text-[#32211b] w-full text-3xl font-bold" }>
-          Samyang Roll
-        </h1>
-        <ul className="md:flex hidden font-semibold">
-          <li className="p-4">Deskripsi</li>
-          <li className="p-4">test</li>
-          <li className="p-4">test</li>
+    // WRAPPER NAVBAR
+    <div
+      className="
+        sticky top-0 z-50
+        bg-white md:bg-white/30
+        md:backdrop-blur-md
+        shadow-sm border-b border-black/5
+      "
+    >
+      {/* CONTAINER */}
+      <div className="flex justify-between items-center px-4 mx-auto max-w-[1240px] text-[#32211b] h-20">
+        {/* LOGO / TITLE */}
+        <div className="flex items-center gap-2">
+          <img src={Logo} alt="Logo" className="max-w-[80px] max-h-[80px] px-2" />
+          <h1
+            className={`
+            font-bold transition-opacity duration-300
+            text-2xl md:text-3xl
+            ${nav ? "opacity-0 md:opacity-100" : "opacity-100"}
+          `}
+          >
+            Samyang Roll
+          </h1>
+        </div>
+        {/* MENU DESKTOP */}
+        <ul className="hidden md:flex font-semibold">
+          <li className="p-4 cursor-pointer hover:text-orange-600">
+            Deskripsi
+          </li>
+          <li className="p-4 cursor-pointer hover:text-orange-600">Menu</li>
+          <li className="p-4 cursor-pointer hover:text-orange-600">Kontak</li>
         </ul>
-        <div>
-          <div onClick={handleNav} className="block md:hidden">
-            {!nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
-          </div>
-        </div> 
+        {/* HAMBURGER ICON */}
+        <div
+          onClick={handleNav}
+          className="block md:hidden cursor-pointer z-50"
+        >
+          {nav ? <AiOutlineClose size={26} /> : <AiOutlineMenu size={26} />}
+        </div>
+        {/* MOBILE MENU */}
         <div
           className={
-            !nav
-              ? "fixed left-0 top-9 w-[60%] opacity-95 h-full z-50 ease-in-out duration-500"
-              : "fixed left-[-100%] bg-[#306cc7]top-0 w-[60%] ease-in-out duration-400"
+            nav
+              ? "fixed left-0 top-0 w-[70%] h-full bg-white shadow-lg ease-in-out duration-300 z-40"
+              : "fixed left-[-100%] top-0 w-[70%] h-full ease-in-out duration-300"
           }
         >
-          <h1 className="text-[#32211b] w-full text-3xl font-bold m-5">Samyang Roll</h1>
-          <ul className="uppercase p-4">
-          <li className="p-4">Deskripsi</li>
-          <li className="p-4">test</li>
-          <li className="p-4">test</li>
-        </ul>
+          <div className="flex items-center gap-2">
+          <img src={Logo} alt="Logo" className="max-w-[80px] max-h-[80px] px-2" />
+          <h1 className="text-3xl font-bold mx-0.5 my-5">Samyang Rolls</h1>
+          </div>
+
+          <ul className="uppercase p-4 font-semibold">
+            <li className="p-4 border-b cursor-pointer">Deskripsi</li>
+            <li className="p-4 border-b cursor-pointer">Menu</li>
+            <li className="p-4 cursor-pointer">Kontak</li>
+          </ul>
         </div>
       </div>
     </div>
