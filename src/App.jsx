@@ -5,6 +5,7 @@ import Deskripsi from './Components/Deskripsi'
 import ProblemSolution from './Components/ProblemSolution'
 import Features from './Components/Features'
 import Gallery from './Components/Gallery'
+import Order from './Components/Order'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
     <ProblemSolution/>
     <Features/>
     <Gallery/>
+    <Order/>
     </>
   )
 }
