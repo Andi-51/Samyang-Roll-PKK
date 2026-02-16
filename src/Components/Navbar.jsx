@@ -22,7 +22,8 @@ const Navbar = () => {
       {/* CONTAINER */}
       <div className="flex justify-between items-center px-4 mx-auto max-w-[1240px] text-[#32211b] h-20">
         {/* LOGO / TITLE */}
-        <div className="flex items-center gap-2">
+        <a href="#scrollKeAtas" className="cursor-pointer scroll-smooth">
+        <div className="flex items-center gap-2" >
           <img src={Logo} alt="Logo" className="max-w-[80px] max-h-[80px] px-2" />
           <h1
             className={`
@@ -34,6 +35,7 @@ const Navbar = () => {
             Samyang Roll
           </h1>
         </div>
+        </a>
         {/* MENU DESKTOP */}
         <ul className="hidden md:flex font-semibold">
           <li className="p-4 cursor-pointer hover:text-orange-600">

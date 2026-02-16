@@ -6,6 +6,7 @@ import ProblemSolution from './Components/ProblemSolution'
 import Features from './Components/Features'
 import Gallery from './Components/Gallery'
 import Order from './Components/Order'
+import Footer from './Components/Footer'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
     <Features/>
     <Gallery/>
     <Order/>
+    <Footer/>
     </>
   )
 }

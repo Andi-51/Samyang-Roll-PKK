@@ -3,7 +3,7 @@ import Samyang2 from "../assets/Samyang2.png";
 
 const Hero = () => {
   return (
-    <div className="min-h-screen w-full bg-amber-500 flex items-center">
+    <div className="min-h-screen w-full bg-gradient-to-b from-orange-500 to-orange-600 flex items-center text-white" id="scrollKeAtas">
       <div className="mx-auto max-w-[1240px] w-full px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* TEXT */}
         <div className="text-center md:text-left">
@@ -11,16 +11,16 @@ const Hero = () => {
           <h2 className="font-semibold text-2xl md:text-4xl my-4">
             Pedas & Gurih!
           </h2>
-          <button
+          <a href="#order"
             className="
-            border-2 border-gray-300 bg-white
-            rounded-2xl px-6 py-3 mt-2
+          bg-white
+            rounded-full px-6 py-3 mt-2
             font-semibold text-lg
-            hover:-translate-y-1 transition
+            hover:-translate-y-1 transition text-orange-500
           "
           >
             Order Sekarang!
-          </button>
+          </a>
         </div>
 
         {/* IMAGE */}

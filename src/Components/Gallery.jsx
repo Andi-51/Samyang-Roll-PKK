@@ -15,6 +15,10 @@ const Gallery = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: "ease-in-out",
+    pauseOnHover: false,
   };
 
   const images = [Gallery1, Gallery2];

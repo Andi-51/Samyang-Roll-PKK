@@ -2,7 +2,7 @@ import React from "react";
 
 const ProblemSolution = () => {
   return (
-    <div className="bg-white border-y">
+    <div className="bg-white border-y" >
       <div className="max-w-[1240px] mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* PROBLEM */}
