@@ -37,10 +37,14 @@ const Navbar = () => {
         {/* MENU DESKTOP */}
         <ul className="hidden md:flex font-semibold">
           <li className="p-4 cursor-pointer hover:text-orange-600">
-            Deskripsi
+            <a href="#features">Kelebihan</a>
           </li>
-          <li className="p-4 cursor-pointer hover:text-orange-600">Menu</li>
-          <li className="p-4 cursor-pointer hover:text-orange-600">Kontak</li>
+          <li className="p-4 cursor-pointer hover:text-orange-600">
+            <a href="#gallery">Gallery</a>
+          </li>
+          <li className="p-4 cursor-pointer hover:text-orange-600">
+            <a href="#order">Order</a>
+          </li>
         </ul>
         {/* HAMBURGER ICON */}
         <div
@@ -63,9 +67,15 @@ const Navbar = () => {
           </div>
 
           <ul className="uppercase p-4 font-semibold">
-            <li className="p-4 border-b cursor-pointer">Deskripsi</li>
-            <li className="p-4 border-b cursor-pointer">Menu</li>
-            <li className="p-4 cursor-pointer">Kontak</li>
+            <li className="p-4 border-b cursor-pointer">
+              <a href="#features" onClick={handleNav}>Kelebihan</a>
+            </li>
+            <li className="p-4 border-b cursor-pointer">
+              <a href="#gallery" onClick={handleNav}>Gallery</a>
+            </li>
+            <li className="p-4 cursor-pointer">
+               <a href="#order" onClick={handleNav}>Order</a>
+            </li>
           </ul>
         </div>
       </div>

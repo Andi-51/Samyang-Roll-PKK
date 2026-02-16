@@ -3,12 +3,12 @@ import React from "react";
 const Order = () => {
   const phoneNumber = "6283841218789";
 
-  const message = "Halo admin 👋. Saya dari kelas {kelas} tertarik untuk memesan Samyang Rolls.";
+  const message = "Halo kak 👋. Saya dari kelas {kelas} tertarik untuk memesan Samyang Rolls.";
 
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <div className="bg-gradient-to-b from-orange-500 to-orange-600">
+    <div className="bg-gradient-to-b from-orange-500 to-orange-600" id="order">
       <div className="py-12">
         <div className=" flex flex-col items-center">
           <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl text-center">

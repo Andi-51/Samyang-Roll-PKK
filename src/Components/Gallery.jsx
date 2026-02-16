@@ -20,7 +20,7 @@ const Gallery = () => {
   const images = [Gallery1, Gallery2];
 
   return (
-    <div className="w-full max-w-3xl mx-auto py-10">
+    <div className="w-full max-w-3xl mx-auto py-10" id="gallery">
       <Slider {...settings}>
         {images.map((img, index) => (
           <div key={index} className="px-2">

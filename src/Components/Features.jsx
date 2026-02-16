@@ -2,7 +2,7 @@ import { Flame, Utensils, Clock } from "lucide-react";
 
 const Features = () => {
   return (
-    <div className="bg-orange-50 py-16 md:py-24 px-4 gap-t-20 p-10 flex flex-col justify-center items-center">
+    <div className="bg-orange-50 py-16 md:py-24 px-4 gap-t-20 p-10 flex flex-col justify-center items-center" id="features">
         <div className="flex items-center h-fit flex-col">
         <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl my-2">Kenapa harus Samyang Rolls?</h1>
         <p className="text-gray-700 text-center max-w-xl md:max-w-2xl lg:max-w-3xl mb-8">Karena Samyang Rolls memiliki perpaduan rasa pedas khas Korea dengan sentuhan yang bikin nagih</p>
