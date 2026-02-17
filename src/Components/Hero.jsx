@@ -27,7 +27,7 @@ const Hero = () => {
 
         {/* IMAGE */}
         <div className="flex justify-center md:justify-end">
-          <motion.div initial={{ opacity:0, x:80 }} animate={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.6 }}>
+          <motion.div initial={{ opacity:0, x:80 }} animate={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.6 }} className="overflow-x-hidden">
           <img
             src={Samyang3}
             alt="Samyang Image"

@@ -28,7 +28,7 @@ const ProblemSolution = () => {
         </div>
 
         {/* SOLUTION */}
-        <motion.div initial={{ opacity:0, x:80 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:1.2, delay:1 }}>
+        <motion.div initial={{ opacity:0, x:80 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:1.2, delay:1 }} className="overflow-x-hidden">
           <div className="bg-amber-500 rounded-2xl p-8 shadow-md">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#32211b]">
               Samyang Rolls jawabannya

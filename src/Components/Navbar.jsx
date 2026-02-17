@@ -40,7 +40,7 @@ const Navbar = () => {
         </a>
         </motion.div>
         {/* MENU DESKTOP */}
-        <motion.div initial={{ opacity:0 , x:60 }} animate={{ opacity:1 , x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.4 }}>
+        <motion.div initial={{ opacity:0 , x:60 }} animate={{ opacity:1 , x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.4 }} className="overflow-x-hidden">
         <ul className="hidden md:flex font-semibold">
           <li className="p-4 cursor-pointer hover:text-orange-600">
             <a href="#features">Kelebihan</a>

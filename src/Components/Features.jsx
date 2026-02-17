@@ -23,7 +23,7 @@ const Features = () => {
                 <h1 className="font-bold text-xl my-2">Unik & Modern</h1>
                 <p className="text-center text-gray-700">Mie yang digulung menggunakan rice paper, menghasilkan texture yang kenyal dan berbeda dari yang lain</p>
             </motion.div>
-            <motion.div initial={{ opacity:0, x:80 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:1.2, delay:0.1 }} className="bg-white p-4 rounded-xl shadow-lg flex flex-col items-center">
+            <motion.div initial={{ opacity:0, x:80 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:1.2, delay:0.1 }} className="bg-white p-4 rounded-xl shadow-lg flex flex-col items-center overflow-x-hidden">
                 <Clock size={48} className="text-amber-500 mb-2"/>
                 <h1 className="font-bold text-xl my-2">Praktis & Cepat</h1>
                 <p className="text-center text-gray-700">Siap dinikmati dimana pun tanpa ribet, cocok untuk cemilan segala waktu</p>

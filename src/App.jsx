@@ -10,7 +10,7 @@ import Footer from './Components/Footer'
 
 const App = () => {
   return (
-    <>
+    <div className='overflow-x-hidden'>
     <Navbar/>
     <Hero/>
     <ProblemSolution/>
@@ -18,7 +18,7 @@ const App = () => {
     <Gallery/>
     <Order/>
     <Footer/>
-    </>
+    </div>
   )
 }
 
