@@ -3,7 +3,7 @@ import React from "react";
 const Order = () => {
   const phoneNumber = "6283841218789";
 
-  const message = "Halo kak 👋. Saya dari kelas {kelas} tertarik untuk memesan Samyang Rolls.";
+  const message = "Halo kak 🖐. Saya dari kelas {kelas} tertarik untuk memesan Samyang Rolls 🔥.";
 
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
