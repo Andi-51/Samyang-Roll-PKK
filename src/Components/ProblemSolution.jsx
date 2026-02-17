@@ -9,7 +9,7 @@ const ProblemSolution = () => {
         {/* PROBLEM */}
         <div>
           <motion.div initial={{ opacity:0, x:-80 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:1.2, delay:0.2 }}>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:text-left">
               Pernah ngerasa gini?
             </h2>
           </motion.div>
