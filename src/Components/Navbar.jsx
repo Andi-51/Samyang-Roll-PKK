@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Logo from "../assets/Logo.png";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -22,6 +23,7 @@ const Navbar = () => {
       {/* CONTAINER */}
       <div className="flex justify-between items-center px-4 mx-auto max-w-[1240px] text-[#32211b] h-20">
         {/* LOGO / TITLE */}
+        <motion.div initial={{ opacity:0 , x:-60 }} animate={{ opacity:1 , x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.2 }}>
         <a href="#scrollKeAtas" className="cursor-pointer scroll-smooth">
         <div className="flex items-center gap-2" >
           <img src={Logo} alt="Logo" className="max-w-[80px] max-h-[80px] px-2" />
@@ -36,7 +38,9 @@ const Navbar = () => {
           </h1>
         </div>
         </a>
+        </motion.div>
         {/* MENU DESKTOP */}
+        <motion.div initial={{ opacity:0 , x:60 }} animate={{ opacity:1 , x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.4 }}>
         <ul className="hidden md:flex font-semibold">
           <li className="p-4 cursor-pointer hover:text-orange-600">
             <a href="#features">Kelebihan</a>
@@ -55,6 +59,7 @@ const Navbar = () => {
         >
           {nav ? <AiOutlineClose size={26} /> : <AiOutlineMenu size={26} />}
         </div>
+        </motion.div>
         {/* MOBILE MENU */}
         <div
           className={
