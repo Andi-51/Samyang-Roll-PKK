@@ -40,17 +40,16 @@ const Navbar = () => {
         </a>
         </motion.div>
         {/* MENU DESKTOP */}
-        <motion.div initial={{ opacity:0 , x:60 }} animate={{ opacity:1 , x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.4 }} className="overflow-x-hidden">
         <ul className="hidden md:flex font-semibold">
-          <li className="p-4 cursor-pointer hover:text-orange-600">
+          <motion.li initial={{ opacity:0, y:-60 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.2 }} className="p-4 cursor-pointer hover:text-orange-600">
             <a href="#features">Kelebihan</a>
-          </li>
-          <li className="p-4 cursor-pointer hover:text-orange-600">
+          </motion.li>
+          <motion.li initial={{ opacity:0, y:-60 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.25 }} className="p-4 cursor-pointer hover:text-orange-600 ">
             <a href="#gallery">Gallery</a>
-          </li>
-          <li className="p-4 cursor-pointer hover:text-orange-600">
+          </motion.li>
+          <motion.li initial={{ opacity:0, y:-60 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.3 }} className="p-4 cursor-pointer hover:text-orange-600">
             <a href="#order">Order</a>
-          </li>
+          </motion.li>
         </ul>
         {/* HAMBURGER ICON */}
         <div
@@ -59,7 +58,6 @@ const Navbar = () => {
         >
           {nav ? <AiOutlineClose size={26} /> : <AiOutlineMenu size={26} />}
         </div>
-        </motion.div>
         {/* MOBILE MENU */}
         <div
           className={
