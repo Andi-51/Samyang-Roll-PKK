@@ -9,7 +9,7 @@ const Features = () => {
     useEffect(() => {
         AOS.init({
            once:true,
-           offset:150,
+           offset:50,
 
         });
     }, []);

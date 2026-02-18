@@ -29,7 +29,7 @@ const Navbar = () => {
           <img src={Logo} alt="Logo" className="max-w-[80px] max-h-[80px] px-2" />
           <h1
             className={`
-            font-bold transition-opacity duration-300
+            font-bold transition-opacity duration-300 py-4
             text-2xl md:text-3xl
             ${nav ? "opacity-0 md:opacity-100" : "opacity-100"}
           `}
