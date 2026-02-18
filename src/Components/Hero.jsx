@@ -16,9 +16,9 @@ const Hero = () => {
               Pedas & Gurih!
             </h2>
           </motion.div>
-          <div className="mt-8 w-fit">
-          <motion.div initial={{ opacity:0, y:80 }} animate={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.4, delay:0.3 }} whileHover={{ y:-4, transition:{ duration:0.1, delay:0 } }} className="w-fit">
-            <a href="#order" className="bg-white rounded-full px-6 py-3 mt-4 font-semibold text-lg hover:-translate-y-1 transition text-orange-500 w-fit">
+          <div className="mt-8 md:w-fit">
+          <motion.div initial={{ opacity:0, y:80 }} animate={{ opacity:1, y:0 }} viewport={{ once:true }} transition={{ duration:0.4, delay:0.3 }} whileHover={{ y:-4, transition:{ duration:0.1, delay:0 } }} className="md:w-fit">
+            <a href="#order" className="bg-white rounded-full px-6 py-3 mt-4 font-semibold text-lg hover:-translate-y-1 transition text-orange-500 md:w-fit">
               Order Sekarang!
             </a>
           </motion.div>
