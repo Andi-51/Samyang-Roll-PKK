@@ -1,90 +1,122 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Logo from "../assets/Logo.png";
-import { motion } from "framer-motion";
+
+const navItems = [
+  { label: "Cerita", href: "#story" },
+  { label: "Kelebihan", href: "#features" },
+  { label: "Galeri", href: "#gallery" },
+  { label: "Order", href: "#order" },
+];
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
 
-  const handleNav = () => {
-    setNav(!nav);
-  };
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", nav);
+
+    return () => {
+      document.body.classList.remove("menu-open");
+    };
+  }, [nav]);
 
   return (
-    // WRAPPER NAVBAR
-    <div
-      className="
-        sticky top-0 z-50
-        bg-white md:bg-white/30
-        md:backdrop-blur-md
-        shadow-sm border-b border-black/5
-      "
-    >
-      {/* CONTAINER */}
-      <div className="flex justify-between items-center px-4 mx-auto max-w-[1240px] text-[#32211b] h-20">
-        {/* LOGO / TITLE */}
-        <motion.div initial={{ opacity:0 , x:-60 }} animate={{ opacity:1 , x:0 }} viewport={{ once:true }} transition={{ duration:0.8, delay:0.2 }}>
-        <a href="#scrollKeAtas" className="cursor-pointer scroll-smooth">
-        <div className="flex items-center gap-2" >
-          <img src={Logo} alt="Logo" className="max-w-[80px] max-h-[80px] px-2" />
-          <h1
-            className={`
-            font-bold transition-opacity duration-300 py-4
-            text-2xl md:text-3xl
-            ${nav ? "opacity-0 md:opacity-100" : "opacity-100"}
-          `}
-          >
-            Samyang Roll
-          </h1>
-        </div>
-        </a>
-        </motion.div>
-        {/* MENU DESKTOP */}
-        <ul className="hidden md:flex font-semibold">
-          <motion.li initial={{ opacity:0, y:-60 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.2 }} className="p-4 cursor-pointer hover:text-orange-600">
-            <a href="#features">Kelebihan</a>
-          </motion.li>
-          <motion.li initial={{ opacity:0, y:-60 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.25 }} className="p-4 cursor-pointer hover:text-orange-600 ">
-            <a href="#gallery">Gallery</a>
-          </motion.li>
-          <motion.li initial={{ opacity:0, y:-60 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay:0.3 }} className="p-4 cursor-pointer hover:text-orange-600">
-            <a href="#order">Order</a>
-          </motion.li>
-        </ul>
-        {/* HAMBURGER ICON */}
-        <div
-          onClick={handleNav}
-          className="block md:hidden cursor-pointer z-50"
-        >
-          {nav ? <AiOutlineClose size={26} /> : <AiOutlineMenu size={26} />}
-        </div>
-        {/* MOBILE MENU */}
-        <div
-          className={
-            nav
-              ? "fixed left-0 top-0 w-[70%] h-full bg-white shadow-lg ease-in-out duration-300 z-40"
-              : "fixed left-[-100%] top-0 w-[70%] h-full ease-in-out duration-300"
-          }
-        >
-          <div className="flex items-center gap-2">
-          <img src={Logo} alt="Logo" className="max-w-[80px] max-h-[80px] px-2" />
-          <h1 className="text-3xl font-bold mx-0.5 my-5">Samyang Rolls</h1>
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4">
+      <motion.div
+        initial={{ opacity: 0, y: -24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+        className="section-shell soft-panel flex min-h-18 items-center justify-between rounded-[26px] px-4 py-3 text-[#32211b] sm:px-6"
+      >
+        <a href="#scrollKeAtas" className="mobile-safe flex min-w-0 items-center gap-3">
+          <div className="rounded-2xl bg-gradient-to-br from-orange-500 via-amber-400 to-orange-700 p-2.5 warm-shadow">
+            <img src={Logo} alt="Logo Samyang Rolls" className="h-10 w-10 object-contain sm:h-11 sm:w-11" />
           </div>
+          <div className="min-w-0">
+            <p className="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#9d5a27]">
+              Street Snack
+            </p>
+            <h1 className="truncate font-serif text-xl font-bold sm:text-2xl">
+              Samyang Rolls
+            </h1>
+          </div>
+        </a>
 
-          <ul className="uppercase p-4 font-semibold">
-            <li className="p-4 border-b cursor-pointer">
-              <a href="#features" onClick={handleNav}>Kelebihan</a>
-            </li>
-            <li className="p-4 border-b cursor-pointer">
-              <a href="#gallery" onClick={handleNav}>Gallery</a>
-            </li>
-            <li className="p-4 cursor-pointer">
-               <a href="#order" onClick={handleNav}>Order</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+        <nav className="hidden items-center gap-1 md:flex">
+          {navItems.map((item, index) => (
+            <motion.a
+              key={item.href}
+              href={item.href}
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: 0.06 * index }}
+              className="rounded-full px-4 py-2 text-sm font-semibold text-[#5f402e] transition hover:bg-white hover:text-[#20110c]"
+            >
+              {item.label}
+            </motion.a>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          onClick={() => setNav((prev) => !prev)}
+          aria-label={nav ? "Tutup menu" : "Buka menu"}
+          aria-expanded={nav}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/80 text-[#32211b] md:hidden"
+        >
+          {nav ? <AiOutlineClose size={22} /> : <AiOutlineMenu size={22} />}
+        </button>
+      </motion.div>
+
+      <AnimatePresence>
+        {nav && (
+          <>
+            <motion.button
+              type="button"
+              aria-label="Tutup menu"
+              className="fixed inset-0 z-40 bg-[#1d120a]/45 backdrop-blur-[2px] md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setNav(false)}
+            />
+            <motion.aside
+              initial={{ x: "-100%", opacity: 0.8 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "-100%", opacity: 0.8 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="fixed inset-y-3 left-3 z-50 w-[min(86vw,22rem)] rounded-[28px] border border-white/40 bg-[#fff6ed] p-5 shadow-2xl md:hidden"
+            >
+              <div className="mb-8 flex items-center gap-3">
+                <div className="rounded-2xl bg-gradient-to-br from-orange-500 to-amber-400 p-2">
+                  <img src={Logo} alt="Logo Samyang Rolls" className="h-11 w-11 object-contain" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[0.68rem] font-black uppercase tracking-[0.22em] text-[#9d5a27]">
+                    Crispy Heat
+                  </p>
+                  <h2 className="truncate font-serif text-2xl font-bold">Samyang Rolls</h2>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                {navItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setNav(false)}
+                    className="block rounded-2xl border border-black/6 bg-white px-4 py-4 text-base font-semibold text-[#41271b] transition hover:border-orange-300 hover:bg-orange-50"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+    </header>
   );
 };
 

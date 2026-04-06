@@ -1,47 +1,92 @@
-import { useEffect } from "react";
-import { Flame, Utensils, Clock } from "lucide-react";
+import { Flame, Clock3, Sparkles, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
+const featureCards = [
+  {
+    icon: Flame,
+    title: "Pedas yang berlapis",
+    copy: "Bukan sekadar pedas numpang lewat. Ada rasa gurih yang bikin sensasi akhirnya tetap enak, bukan cuma menyengat.",
+    style: "bg-[#2a160d] text-[#fff3e6] lg:col-span-2",
+    iconStyle: "text-[#ffb35d]",
+  },
+  {
+    icon: Sparkles,
+    title: "Bentuknya khas",
+    copy: "Roll yang rapi memberi kesan lebih niat dan lebih gampang menarik perhatian saat dipajang atau dipromosikan.",
+    style: "bg-[#fff7f1] text-[#2c160d]",
+    iconStyle: "text-[#d26a21]",
+  },
+  {
+    icon: Clock3,
+    title: "Cepat disantap",
+    copy: "Cocok untuk jam istirahat, nongkrong, atau jualan event karena gampang dipegang dan tidak terasa merepotkan.",
+    style: "bg-[#fff7f1] text-[#2c160d]",
+    iconStyle: "text-[#d26a21]",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Punya identitas",
+    copy: "Nama produk, warna, dan karakter rasa saling nyambung sehingga brand-nya terasa lebih serius, bukan generik.",
+    style: "bg-[linear-gradient(145deg,#f6b35d_0%,#f08a1d_100%)] text-[#23120b] lg:col-span-2",
+    iconStyle: "text-[#6c2805]",
+  },
+];
 
 const Features = () => {
-
-    useEffect(() => {
-        AOS.init({
-           once:true,
-           offset:50,
-
-        });
-    }, []);
-
   return (
-    <div className="bg-orange-50 py-16 md:py-24 px-4 gap-t-20 p-10 flex flex-col justify-center items-center" id="features">
-        <div className="flex items-center h-fit flex-col">
-            <div>
-                <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl my-2 text-center">Kenapa harus Samyang Rolls?</h1>
-            </div>
-            <div>
-                <p className="text-gray-700 text-center max-w-xl md:max-w-2xl lg:max-w-3xl mb-8">Karena Samyang Rolls memiliki perpaduan rasa pedas khas Korea dengan sentuhan yang bikin nagih</p>
-            </div>
+    <section id="features" className="px-3 py-10 sm:px-4 sm:py-14">
+      <div className="section-shell">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55 }}
+          className="mb-8 max-w-3xl"
+        >
+          <span className="section-kicker text-[#8e4f23]">Why it works</span>
+          <h2 className="section-title text-balance mt-5 text-[clamp(2.2rem,5vw,4.5rem)] text-[#24140c]">
+            Dibuat supaya terasa lebih berani, lebih rapi, dan lebih gampang dijual.
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-[#5d4739]">
+            Nilai jual Samyang Rolls ada di pertemuan antara rasa pedas yang
+            familiar dan format produk yang jauh lebih menarik secara visual.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {featureCards.map((feature, index) => {
+            const Icon = feature.icon;
+
+            return (
+              <motion.article
+                key={feature.title}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45, delay: index * 0.06 }}
+                whileHover={{ y: -5 }}
+                className={`mobile-safe warm-shadow rounded-[30px] p-6 sm:p-7 ${feature.style}`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className={`rounded-2xl border border-current/10 bg-white/10 p-3 ${feature.iconStyle}`}>
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <span className="text-[0.7rem] font-black uppercase tracking-[0.2em] opacity-65">
+                    0{index + 1}
+                  </span>
+                </div>
+                <h3 className="mt-8 font-serif text-2xl font-bold sm:text-[2rem]">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 max-w-xl text-sm leading-6 opacity-85 sm:text-base">
+                  {feature.copy}
+                </p>
+              </motion.article>
+            );
+          })}
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-            <div data-aos="flip-right" data-aos-duration="500" data-aos-delay="200" className="bg-white p-4 rounded-lg shadow-xl flex flex-col items-center">
-                <Flame size={48} className="text-amber-500 mb-2"/>
-                <h1 className="font-bold text-xl my-2">Pedas yang Autentik</h1>
-                <p className="text-center text-gray-700">Rasa pedas yang bikin candu hingga menggoyangkan lidah</p>
-            </div>
-            <div data-aos="flip-right" data-aos-duration="500" data-aos-delay="350"  className="bg-white p-4 rounded-xl shadow-lg flex flex-col items-center">
-                <Utensils size={48} className="text-amber-500 mb-2"/>
-                <h1 className="font-bold text-xl my-2">Unik & Modern</h1>
-                <p className="text-center text-gray-700">Mie yang digulung menggunakan rice paper, menghasilkan texture yang kenyal dan berbeda dari yang lain</p>
-            </div>
-            <div data-aos="flip-right" data-aos-duration="500" data-aos-delay="550"  className="bg-white p-4 rounded-xl shadow-lg flex flex-col items-center">
-                <Clock size={48} className="text-amber-500 mb-2"/>
-                <h1 className="font-bold text-xl my-2">Praktis & Cepat</h1>
-                <p className="text-center text-gray-700">Siap dinikmati dimana pun tanpa ribet, cocok untuk cemilan segala waktu</p>
-            </div>
-        </div>
-    </div>
+      </div>
+    </section>
   );
 };
 
